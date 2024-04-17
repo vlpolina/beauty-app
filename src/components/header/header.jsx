@@ -1,8 +1,19 @@
 import React from 'react';
 import "./header.scss";
-import girl from "C:/Users/aleks/Desktop/beauty-world/my-app/src/images/girl.png";
+import girl from "../../images/girl.png";
 
-export default function Header() {
+
+export default function Header () {
+    const scrollTo = (id) => {
+        const element = document.getElementById(id);
+        element.scrollIntoView({
+            behavior: 'smooth'
+        });
+    };
+    
+    
+
+
     return (
         <header className="header">
             <div className="content-contaitner content-container__for-header">
@@ -11,19 +22,19 @@ export default function Header() {
                     <nav className="header__nav">
                         <div>
                             <ul>
-                                <li>
-                                    <p>Услуги и цены</p>
-                                </li>
-                                <li>
-                                    <p>Мастера</p>
-                                </li>
-                                <li>
-                                    <p>Наши работы</p>
-                                </li>
-                                <li>
+                                <li onClick={() => scrollTo('about')}>
                                     <p>О нас</p>
                                 </li>
-                                <li>
+                                <li onClick={() => scrollTo('services')}>
+                                    <p>Услуги и цены</p>
+                                </li>
+                                <li onClick={() => scrollTo('masters')}>
+                                    <p>Мастера</p>
+                                </li>
+                                <li onClick={() => scrollTo('our-work')}>
+                                    <p>Наши работы</p>
+                                </li>
+                                <li onClick={() => scrollTo('contacts')}>
                                     <p>Контакты</p>
                                 </li>
                             </ul>
@@ -48,6 +59,7 @@ export default function Header() {
                         <div className="header__social"></div>
                 </div>
                 <img className="header__girl" src={girl} alt="girl" />
+                {/* <img className="background" src={background} alt="background" /> */}
             </div>
         </header>
     )
